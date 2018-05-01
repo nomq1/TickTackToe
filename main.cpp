@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include "Board.hpp"
 #include <iostream>
 using namespace std;
@@ -22,3 +23,16 @@ int main() {
 	*/
 
 }
+=======
+#include "Board.hpp"
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    Board b(4);
+    Point p(3,3);
+    cout<<b[p];
+
+}
+>>>>>>> 71851d128dbe88c4e57541b698dd488dcc4ecd4c
