@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 #include "Board.hpp"
 
 #include <iostream>
