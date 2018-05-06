@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include "Point.hpp"
 
@@ -27,7 +26,4 @@ using namespace std;
             cout<<"";
         }
 
-
-
-       
 
