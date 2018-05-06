@@ -1,7 +1,8 @@
 #include "Board.hpp"
 #include <iostream>
-#include <exception>
-#include "IllegalCoordinateException.hpp"
+
+
+
 using namespace std;
 
     Board::Board() //ok
@@ -33,9 +34,12 @@ using namespace std;
 
     char& Board::operator[](Point po) //ok
      { 
-         int s=(this->size);
-         int num=(po.x)*size; 
-         return this->board[num+po.y];     
+    int size_board = po.x * size + po.y; 
+    if ( size_board < 0||size*size <= size_board)
+	{
+		throw IllegalCoordinateException(po.x,po.y);
+	}
+         return this->board[size_board];     
      }
 
 
@@ -60,7 +64,7 @@ using namespace std;
         Point p(i,j);  
          if(c!='.')
          {
-    //    throw IllegalCoordinateException(c);
+       //    throw IllegalCharException(p.x , p.y);
          }
          else
          {
@@ -79,5 +83,3 @@ using namespace std;
         cout<<"";
     } 
 
-
-   
