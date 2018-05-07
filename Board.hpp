@@ -1,5 +1,6 @@
 #include <iostream>
 #include "IllegalCoordinateException.hpp"
+#include "IllegalCharException.hpp"
 
 using namespace std;
 
@@ -19,3 +20,4 @@ class Board{
         ~Board();  
 
 };
+
