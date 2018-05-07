@@ -1,0 +1,18 @@
+CXX=g++-5.0
+CXXFLAGS=-std=c++17 
+
+all: main.o Board.o IllegalCoordinateException.o
+	$(CXX) $(CXXFLAGS) Board.o main.o IllegalCoordinateException.o
+	./a.out
+
+Board.o: Board.cpp Board.hpp
+	$(CXX) $(CXXFLAGS) -c Board.cpp -o Board.o
+
+IllegalCoordinateException.o: IllegalCoordinateException.cpp IllegalCoordinateException.hpp
+	$(CXX) $(CXXFLAGS) -c IllegalCoordinateException.cpp -o IllegalCoordinateException.o
+
+main.o: main.cpp Board.hpp
+	$(CXX) $(CXXFLAGS) -c main.cpp -o main.o
+
+clean:
+	rm *.o a.out
