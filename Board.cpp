@@ -55,26 +55,32 @@ using namespace std;
     } 
     return out;
     }
+
     void Board::operator=(char c){
 
-    for(int i=0;i<size;i++)
-    {    
-        for(int j=0;j<size;j++)
-        {
-        Point p(i,j);  
-         if(c!='.')
-         {
-       //    throw IllegalCharException(p.x , p.y);
-         }
-         else
-         {
-             board[p.x*size+p.y]=c;
-         }
-        }
+    if((c!='X')&&(c!='O')&&(c!='.'))
+    {
+        throw IllegalCharException(c);
+       
     }
-
-      
- 
+    else
+    {   
+        for(int i=0;i<size;i++)
+        {    
+            for(int j=0;j<size;j++)
+            {
+                Point p(i,j);  
+                if(c!='.')
+                {
+            //    throw IllegalCharException(p.x , p.y);
+                }
+                else
+                {
+                    board[p.x*size+p.y]=c;
+                }
+            }
+        }
+    }  
     }
 
 
@@ -82,4 +88,4 @@ using namespace std;
     {
         cout<<"";
     } 
-
+    
