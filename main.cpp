@@ -25,4 +25,21 @@ int main() {
 	} catch (const IllegalCoordinateException& ex) {
 		cout << "Illegal coordinate: " << ex.theCoordinate() << endl;  // prints "Illegal coordinate: 3,4"
 	}
+
+    board1 = '.';     // Fill the entire board with "."
+	cout << board1 << endl;  /* Shows an empty board, as above */
+    try { 
+		board1 = 'a';        // This should raise an exception
+	} catch (const IllegalCharException& ex) {
+		cout << "Illegal char: " << ex.IllegalChar() << endl;  // "Illegal char: a"
+	
+	}
+//צריך להוסיף אופטור השמה למערך תווים רגיל ואז להכניס לשם את האקספשן
+    try {
+		board1[{0,1}] = 'x';  // This should raise an exception
+	} catch (const IllegalCharException& ex) {
+		cout << "Illegal char: " << ex.theChar() << endl;  // "Illegal char: x"
+	}
+
 }
+
