@@ -1,5 +1,5 @@
 #include <iostream>
-#include "IllegalCharException.hpp"
+#include "IllegalCharException.h"
 
 
 IllegalCharException::IllegalCharException(char c)
