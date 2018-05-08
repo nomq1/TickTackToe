@@ -21,4 +21,4 @@ IllegalCharException.o: IllegalCharException.cpp IllegalCharException.hpp
 
 clean:
 	
-	rm all *.o
+	rm *.exe all.out *.class
