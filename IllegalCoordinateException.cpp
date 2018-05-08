@@ -1,5 +1,5 @@
 #include <iostream>
-#include "IllegalCoordinateException.hpp"
+#include "IllegalCoordinateException.h"
 
 
 IllegalCoordinateException::IllegalCoordinateException(int num1,int num2)
