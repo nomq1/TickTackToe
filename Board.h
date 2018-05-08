@@ -1,6 +1,6 @@
 #include <iostream>
-#include "IllegalCoordinateException.hpp"
-#include "IllegalCharException.hpp"
+#include "IllegalCoordinateException.h"
+#include "IllegalCharException.h"
 
 using namespace std;
 
