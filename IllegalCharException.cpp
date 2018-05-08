@@ -7,10 +7,6 @@ IllegalCharException::IllegalCharException(char c)
   this->c=c;
 }
 
-char IllegalCharException::IllegalChar() const
-{
-	return this->c;
-}
 
 char IllegalCharException::theChar() const
 {
