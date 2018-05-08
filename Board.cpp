@@ -2,21 +2,49 @@
 #include <iostream>
 
 
-
 using namespace std;
+
+    Node::Node()
+    {
+        this->ch='.';
+    }
+
+    Node::Node(char c)
+    {
+       this->setch(c);
+    }
+
+    void Node::setch(char c)
+    {
+    if(c=='X'||c=='O'||c=='.')
+        {
+        this->ch=c;
+        }
+    else
+        {
+            IllegalCharException ex(c);
+            throw ex;            
+        }
+    }
+
+    Node& Node::operator=(char c)
+    {
+    this->setch(c);
+    return *this;
+    }
+
 
     Board::Board() //ok
     {
         this->size=0;
-        char board[NULL][NULL];
+        Node b[NULL][NULL];
     }
-
 
     Board::Board(int inputsize) //ok
     {
         this->size=inputsize;
         
-        this->board=new char[inputsize*inputsize];
+        this->board=new Node[inputsize*inputsize];
         for(int i=0;i<size*size;i++)
         {          
             board[i]='.';
@@ -29,7 +57,7 @@ using namespace std;
      {
          int s=(this->size);
          int num=M*size; 
-         return this->board[num+N]; 
+         return this->board[num+N].ch; 
      }
 
     char& Board::operator[](Point po) //ok
@@ -39,7 +67,7 @@ using namespace std;
 	{
 		throw IllegalCoordinateException(po.x,po.y);
 	}
-         return this->board[size_board];     
+         return this->board[size_board].ch;
      }
 
 
@@ -57,30 +85,17 @@ using namespace std;
     }
 
     void Board::operator=(char c){
-
-    if((c!='X')&&(c!='O')&&(c!='.'))
-    {
-        throw IllegalCharException(c);
-       
-    }
-    else
-    {   
-        for(int i=0;i<size;i++)
-        {    
-            for(int j=0;j<size;j++)
-            {
-                Point p(i,j);  
-                if(c!='.')
-                {
-            //    throw IllegalCharException(p.x , p.y);
-                }
-                else
-                {
-                    board[p.x*size+p.y]=c;
-                }
-            }
+ 
+     for(int i=0;i<size*size;i++)
+        {          
+            this->board[i].setch(c);
         }
-    }  
+    }
+
+    void Board::operator=(Board& b)
+    {
+        this->size=b.size;
+        this->board=b.board;
     }
 
 
