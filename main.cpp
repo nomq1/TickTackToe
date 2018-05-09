@@ -35,7 +35,7 @@ int main() {
 		cout << "Illegal char: " << ex.IllegalChar() << endl;  // "Illegal char: a"
 	
 	}
-//×¦×¨×™×š ×œ×”×•×¡×™×£ ××•×¤×˜×•×¨ ×”×©××” ×œ××¢×¨×š ×ª×•×•×™× ×¨×’×™×œ ×•××– ×œ×”×›× ×™×¡ ×œ×©× ××ª ×”××§×¡×¤×©×Ÿ
+//öøéê ìäåñéó àåôèåø äùîä ìîòøê úååéí øâéì åàæ ìäëğéñ ìùí àú äà÷ñôùï
     try {
 		board1[{0,1}] = 'x';  // This should raise an exception
 	} catch (const IllegalCharException& ex) {
