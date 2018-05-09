@@ -1,18 +1,27 @@
-CXX=clang++-5.0
-CXXFLAGS=-std=c++17
+CC =g++
 
-all: Board.o IllegalCharException.o IllegalCoordinateException.o Point.o
+CFLAGS = -Wall -g
+
+all.out:main.o Board.o Point.o IllegalCoordinateException.o IllegalCharException.o 
+	$(CC) $(CFLAGS) -o all main.o Board.o Point.o IllegalCoordinateException.o  IllegalCharException.o -o all.out 
+	
 
 Board.o: Board.cpp Board.h
-	$(CXX) $(CXXFLAGS) -c Board.cpp -o Board.o
-
-IllegalCharException.o: IllegalCharException.cpp IllegalCharException.h
-	$(CXX) $(CXXFLAGS) -c IllegalCharException.cpp -o IllegalCharException.o
-
-IllegalCoordinateException.o: IllegalCoordinateException.cpp IllegalCoordinateException.h
-	$(CXX) $(CXXFLAGS) -c IllegalCoordinateException.cpp -o IllegalCoordinateException.o
+	$(CC) $(CFLAGS) -c Board.cpp
 
 Point.o: Point.cpp Point.h
-	$(CXX) $(CXXFLAGS) -c Point.cpp -o Point.o
+	$(CC) $(CFLAGS) -c Point.cpp 
+
+IllegalCoordinateException.o: IllegalCoordinateException.cpp IllegalCoordinateException.h
+	$(CC) $(CFLAGS) -c IllegalCoordinateException.cpp
+
+IllegalCharException.o: IllegalCharException.cpp IllegalCharException.h
+	$(CC) $(CFLAGS) -c IllegalCharException.cpp
+	
+main.o: main.cpp 
+		$(CC) $(CFLAGS) -c main.cpp
+
 clean:
-	RM *.o 
+	
+		rm *.o all.out
+
