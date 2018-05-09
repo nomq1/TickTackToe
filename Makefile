@@ -1,6 +1,6 @@
-CC = g++
-# CC = gcc
-CFLAGS  = -g -Wall
+CC =clang++-5.0
+
+CFLAGS =-std=c++17
 
 all:  Board.o Point.o IllegalCoordinateException.o IllegalCharException.o 
 	$(CC) $(CFLAGS) -o all Board.o Point.o IllegalCoordinateException.o  IllegalCharException.o 
