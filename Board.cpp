@@ -14,11 +14,6 @@ using namespace std;
        this->setch(c);
     }
 
-    char Node::getch()
-    {
-        return this->ch;
-    }
-
     void Node::setch(char c)
     {
     if(c=='X'||c=='O'||c=='.')
@@ -38,30 +33,28 @@ using namespace std;
     return *this;
     }
 
-    Node::~Node()
-    {
-
-    }
 
     Board::Board() //ok
     {
-       
+        this->size=0;
+        Node b[NULL][NULL];
     }
 
     Board::Board(int inputsize) //ok
     {
-        this->size=inputsize;   
+        this->size=inputsize;
+        
         this->board=new Node[inputsize*inputsize];
         for(int i=0;i<size*size;i++)
         {          
             board[i]='.';
+
         }
         
     }
 
    char Board::getValue(int M, int N)
      {
-         int s=(this->size);
          int num=M*size; 
          return this->board[num+N].ch; 
      }
@@ -75,63 +68,3 @@ using namespace std;
 	}
          return this->board[size_board];
      }
-
-
-
-
-    void Board::operator=(char c){
- 
-     for(int i=0;i<size*size;i++)
-        {          
-            this->board[i].setch(c);
-        }
-    }
-
-  ostream& operator<<(ostream& out,const Board &b)
-  {
-    for(int i=0;i<b.size;i++)
-    {    
-        for(int j=0;j<b.size;j++)
-        {
-         out<<b.board[i*b.size+j].ch;
-        }
-        out<<"\n";
-    } 
-    return out;
-    }
-
-void Board::deleteB()
-{
-      delete[] this->board;
-   
-}
-
-    void Board::operator=(const Board& b)
-    {
-        if(this == &b){
-            return;
-    }
-        if(b.size!=this->size)
-        {
-            deleteB();
-            this->size = b.size;
-            int n=b.size;
-            this->board=new Node(b.size*b.size);
-        }
-        
-        for(int i=0;i<b.size*b.size;i++)
-        {        
-            this->board[i].setch(b.board[i].getch());
-        }
-        }
-    
-
-    Board::~Board()
-    {
-        cout<<"";
-       
-    }
-    
-       
-
- 
