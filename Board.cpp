@@ -60,14 +60,14 @@ using namespace std;
          return this->board[num+N].ch; 
      }
 
-    char& Board::operator[](Point po) //ok
+    Node& Board::operator[](Point po) //ok
      { 
     int size_board = po.x * size + po.y; 
     if ( size_board < 0||size*size <= size_board)
 	{
 		throw IllegalCoordinateException(po.x,po.y);
 	}
-         return this->board[size_board].ch;
+         return this->board[size_board];
      }
 
 
