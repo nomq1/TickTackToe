@@ -33,14 +33,6 @@ using namespace std;
     return *this;
     }
 
-    Node::~Node()
-    {
-   
-    }
-
-
-
-
     Board::Board() //ok
     {
         this->size=0;
@@ -90,15 +82,22 @@ using namespace std;
     return out;
     }
 
-    void Board::operator=(char c){
- 
+    void Board::operator=(Board& b)
+    {
    this->size=b.size;
     this->board=b.board;
+    }
+    void Board::operator=(char c){
+ 
+     for(int i=0;i<size*size;i++)
+        {          
+            this->board[i].setch(c);
+        }
     }
 
     Board::~Board()
     {
         cout<<"";
-}
+    }
     
     
