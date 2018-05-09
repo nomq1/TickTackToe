@@ -21,4 +21,4 @@ IllegalCharException.o: IllegalCharException.cpp IllegalCharException.h
 
 clean:
 	
-	rm all *.o
+	rm *.o
