@@ -2,7 +2,7 @@ CC =clang++-5.0
 
 CFLAGS =-std=c++17
 
-all:  Board.o Point.o IllegalCoordinateException.o IllegalCharException.o 
+a.out:  Board.o Point.o IllegalCoordinateException.o IllegalCharException.o 
 	$(CC) $(CFLAGS) -o all Board.o Point.o IllegalCoordinateException.o  IllegalCharException.o 
 	
 
@@ -21,4 +21,4 @@ IllegalCharException.o: IllegalCharException.cpp IllegalCharException.h
 
 clean:
 	
-	rm *.o
+	rm *.o a.out
