@@ -1,26 +1,20 @@
-CC =g++
+CXX=clang++-5.0
+RM=rm -f
+CPPFLAGS=-std=c++17 
 
-CFLAGS = -Wall -g
+ifndef MAIN
+  MAIN=./main.cpp
+endif
 
+MAINEXECUTABLE=$(subst .cpp,,$(MAIN)).exe
 
-all.out:main.o Board.o Point.o IllegalCoordinateException.o IllegalCharException.o 
-	$(CC) $(CFLAGS) -o all main.o Board.o Point.o IllegalCoordinateException.o  IllegalCharException.o -o all.out 
-	
+SOURCES=$(MAIN)
 
-Board.o: Board.cpp Board.h
-	$(CC) $(CFLAGS) -c Board.cpp
+all: $(MAINEXECUTABLE)
+	$(MAINEXECUTABLE)
 
-Point.o: Point.cpp Point.h
-	$(CC) $(CFLAGS) -c Point.cpp 
-
-IllegalCoordinateException.o: IllegalCoordinateException.cpp IllegalCoordinateException.h
-	$(CC) $(CFLAGS) -c IllegalCoordinateException.cpp
-
-IllegalCharException.o: IllegalCharException.cpp IllegalCharException.h
-	$(CC) $(CFLAGS) -c IllegalCharException.cpp
-	
+$(MAINEXECUTABLE): $(SOURCES) $(HEADERS)
+	$(CXX) $(CPPFLAGS) $(SOURCES) -o $(MAINEXECUTABLE)
 
 clean:
-	
-		rm *.o all.out
-
+	$(RM) *.exe a.out *.class
