@@ -22,4 +22,4 @@ IllegalCharException.o: IllegalCharException.cpp IllegalCharException.h
 
 clean:
 	
-	rm *.o all.out
+	rm all.out
