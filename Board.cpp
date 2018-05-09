@@ -55,7 +55,6 @@ using namespace std;
 
    char Board::getValue(int M, int N)
      {
-         int s=(this->size);
          int num=M*size; 
          return this->board[num+N].ch; 
      }
@@ -72,12 +71,12 @@ using namespace std;
 
 
 
-    ostream& operator<<(ostream& out,Board &b){
+    ostream& operator<<(ostream& out,const Board &b){
     for(int i=0;i<b.size;i++)
     {    
         for(int j=0;j<b.size;j++)
         {
-         out<<b.getValue(i,j);
+         out<<b.board[i*b.size+j].ch;
         }
         out<<"\n";
     } 
