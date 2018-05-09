@@ -28,7 +28,7 @@ class Board{
         Node& operator[](Point po);
         void operator=(char c);
         void operator=(Board& b);
-        friend ostream& operator<<(ostream& out, Board &b); 
+        friend ostream& operator<<(ostream& out, const Board &b); 
         ~Board();  
 
 };
