@@ -25,12 +25,11 @@ class Board{
         Board();
         Board(int inputsize);
         char getValue(int M, int N);   
-        char& operator[](Point po);
+        Node& operator[](Point po);
         void operator=(char c);
         void operator=(Board& b);
         friend ostream& operator<<(ostream& out, Board &b); 
         ~Board();  
 
 };
-
 
