@@ -18,7 +18,7 @@ IllegalCoordinateException.o: IllegalCoordinateException.cpp IllegalCoordinateEx
 IllegalCharException.o: IllegalCharException.cpp IllegalCharException.h
 	$(CC) $(CFLAGS) -c IllegalCharException.cpp
 	
-main.o: main.cpp
+main.o:
 	$(CC) $(CFLAGS) -c main.cpp
 	
 
