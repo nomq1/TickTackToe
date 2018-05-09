@@ -1,27 +1,23 @@
-CC =g++
+CXX=clang++-5.0
+CXXFLAGS=-std=c++17
 
-CFLAGS = -Wall -g
+all: Board.o IllegalCharException.o IllegalCoordinateException.o Point.o Node.o
 
-all.out:main.o Board.o Point.o IllegalCoordinateException.o IllegalCharException.o 
-	$(CC) $(CFLAGS) -o all main.o Board.o Point.o IllegalCoordinateException.o  IllegalCharException.o -o all.out 
+Board.o: Board.cpp Board.hpp
+	$(CXX) $(CXXFLAGS) -c Board.cpp -o Board.o
 	
-
-Board.o: Board.cpp Board.h
-	$(CC) $(CFLAGS) -c Board.cpp
-
-Point.o: Point.cpp Point.h
-	$(CC) $(CFLAGS) -c Point.cpp 
-
-IllegalCoordinateException.o: IllegalCoordinateException.cpp IllegalCoordinateException.h
-	$(CC) $(CFLAGS) -c IllegalCoordinateException.cpp
-
-IllegalCharException.o: IllegalCharException.cpp IllegalCharException.h
-	$(CC) $(CFLAGS) -c IllegalCharException.cpp
+Node.o: Node.cpp Node.hpp
+	$(CXX) $(CXXFLAGS) -c Node.cpp -o Node.o
 	
-main.o: main.cpp 
-		$(CC) $(CFLAGS) -c main.cpp
+IllegalCharException.o: IllegalCharException.cpp IllegalCharException.hpp
+	$(CXX) $(CXXFLAGS) -c IllegalCharException.cpp -o IllegalCharException.o
+
+IllegalCoordinateException.o: IllegalCoordinateException.cpp IllegalCoordinateException.hpp
+	$(CXX) $(CXXFLAGS) -c IllegalCoordinateException.cpp -o IllegalCoordinateException.o
+
+Point.o: Point.cpp Point.hpp
+	$(CXX) $(CXXFLAGS) -c Point.cpp -o Point.o
+
 
 clean:
-	
-		rm *.o all.out
-
+	RM *.o 
