@@ -1,13 +1,10 @@
 CXX=clang++-5.0
 CXXFLAGS=-std=c++17
 
-all: Board.o IllegalCharException.o IllegalCoordinateException.o Point.o Node.o
+all: Board.o IllegalCharException.o IllegalCoordinateException.o Point.o
 
 Board.o: Board.cpp Board.h
 	$(CXX) $(CXXFLAGS) -c Board.cpp -o Board.o
-	
-Node.o: Node.cpp Node.h
-	$(CXX) $(CXXFLAGS) -c Node.cpp -o Node.o
 	
 IllegalCharException.o: IllegalCharException.cpp IllegalCharException.h
 	$(CXX) $(CXXFLAGS) -c IllegalCharException.cpp -o IllegalCharException.o
