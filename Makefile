@@ -1,8 +1,8 @@
 CC =g++
 CFLAGS = -Wall -g
 
-all.out:main.o Board.o Point.o IllegalCoordinateException.o IllegalCharException.o 
-	$(CC) $(CFLAGS) -o all main.o Board.o Point.o IllegalCoordinateException.o  IllegalCharException.o -o all.out 
+all.out:Board.o Point.o IllegalCoordinateException.o IllegalCharException.o 
+	$(CC) $(CFLAGS) -o all Board.o Point.o IllegalCoordinateException.o  IllegalCharException.o -o all.out 
 	
 
 Board.o: Board.cpp Board.h
