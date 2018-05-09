@@ -33,6 +33,13 @@ using namespace std;
     return *this;
     }
 
+    Node::~Node()
+    {
+   
+    }
+
+
+
 
     Board::Board() //ok
     {
@@ -68,3 +75,30 @@ using namespace std;
 	}
          return this->board[size_board];
      }
+
+
+
+    ostream& operator<<(ostream& out,const Board &b){
+    for(int i=0;i<b.size;i++)
+    {    
+        for(int j=0;j<b.size;j++)
+        {
+         out<<b.board[i*b.size+j].ch;
+        }
+        out<<"\n";
+    } 
+    return out;
+    }
+
+    void Board::operator=(char c){
+ 
+   this->size=b.size;
+    this->board=b.board;
+    }
+
+    Board::~Board()
+    {
+        cout<<"";
+}
+    
+    
