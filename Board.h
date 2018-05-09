@@ -1,7 +1,7 @@
 #include <iostream>
 #include "IllegalCoordinateException.h"
 #include "IllegalCharException.h"
-#pragma once
+
 using namespace std;
 
 class Node{
@@ -15,7 +15,6 @@ class Node{
         operator char()const{
                 return ch;
         }
-         ~Node();
 };
 
 class Board{
@@ -28,10 +27,8 @@ class Board{
         char getValue(int M, int N);   
         Node& operator[](Point po);
         void operator=(char c);
+        void operator=(Board& b);
         friend ostream& operator<<(ostream& out, const Board &b); 
-        void deleteB(Node *board);
-        void operator=(const Board& b);
         ~Board();  
 
 };
-
