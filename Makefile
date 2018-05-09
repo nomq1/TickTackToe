@@ -1,6 +1,5 @@
-CC = g++
-
-CFLAGS = -Wall -g
+CC=clang++-5.0
+CFLAGS=-std=c++17
 
 
 all:main.o Board.o Point.o IllegalCoordinateException.o IllegalCharException.o 
