@@ -1,4 +1,5 @@
 #include "Board.h"
+
 #include <iostream>
 using namespace std;
 
@@ -13,30 +14,29 @@ int main() {
 	cout << board1[{1,2}] << endl; // .
 	board1[{1,1}]='X';
 	board1[{1,2}]='O';
-	char c = board1[{1,2}];
-	 cout << c << endl; // O
+	char c = board1[{1,2}]; cout << c << endl; // O
 	cout << board1 << endl;  /* Shows the following board:
 	....
 	.XO.
 	....
 	....
 	*/
+
 	try {
-	board1[{3,4}]='O';   // This should raise an exception
+		board1[{3,4}]='O';   // This should raise an exception
 	} catch (const IllegalCoordinateException& ex) {
 		cout << "Illegal coordinate: " << ex.theCoordinate() << endl;  // prints "Illegal coordinate: 3,4"
 	}
 
-    board1 = '.';     // Fill the entire board with "."
+	board1 = '.';     // Fill the entire board with "."
 	cout << board1 << endl;  /* Shows an empty board, as above */
-    try { 
+	try { 
 		board1 = 'a';        // This should raise an exception
 	} catch (const IllegalCharException& ex) {
-		cout << "Illegal char: " << ex.IllegalChar() << endl;  // "Illegal char: a"
-	
+		cout << "Illegal char: " << ex.theChar() << endl;  // "Illegal char: a"
 	}
-//צריך להוסיף אופטור השמה למערך תווים רגיל ואז להכניס לשם את האקספשן
-    try {
+
+	try {
 		board1[{0,1}] = 'x';  // This should raise an exception
 	} catch (const IllegalCharException& ex) {
 		cout << "Illegal char: " << ex.theChar() << endl;  // "Illegal char: x"
@@ -55,7 +55,4 @@ int main() {
 	cout << "Good bye!" << endl;
 
 	return 0;
-
-
-
 }
