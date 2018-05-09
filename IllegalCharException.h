@@ -9,8 +9,6 @@ class IllegalCharException : public exception
 public:
     char c;
 	IllegalCharException(char c);
+	char IllegalChar()const;
 	char theChar()const;
-	 void setInput(int ch) { 
-		 c = ch;
-		  }
 };
