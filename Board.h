@@ -10,25 +10,29 @@ class Node{
         char ch;
         Node();
         Node(char c);
+        char getch();
         void setch(char c);
         Node& operator=(char c);
         operator char()const{
                 return ch;
         }
+        ~Node();
 };
 
 class Board{
  
    public:
         int size;
+        int size()const;
         Node *board;
         Board();
         Board(int inputsize);
         char getValue(int M, int N);   
         Node& operator[](Point po);
+        char operator[](Point po) const;
         void operator=(char c);
-        void operator=(Board& b);
-        friend ostream& operator<<(ostream& out, const Board &b); 
-        ~Board();  
-
-};
+        friend ostream& operator<<(ostream& out, const Board &b);
+        void deleteB();
+        void operator=(const Board& b);
+        ~Board();
+        };
