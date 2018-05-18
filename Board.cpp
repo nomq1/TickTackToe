@@ -1,6 +1,6 @@
 #include "Board.h"
 #include <iostream>
-
+using Coordinate=Point;
 
 using namespace std;
 
@@ -12,6 +12,11 @@ using namespace std;
     Node::Node(char c)
     {
        this->setch(c);
+    }
+
+    char Node::getch()
+    {
+        return this->ch;
     }
 
     void Node::setch(char c)
@@ -33,44 +38,73 @@ using namespace std;
     return *this;
     }
 
+    Node::~Node()
+    {
+
+    }
+
     Board::Board() //ok
     {
-        this->size=0;
-        Node b[NULL][NULL];
+       
+    }
+
+     int Board::size()const
+    {
+        return (this->size);
     }
 
     Board::Board(int inputsize) //ok
     {
-        this->size=inputsize;
-        
+        this->size=inputsize;   
         this->board=new Node[inputsize*inputsize];
-        for(int i=0;i<size*size;i++)
+        for(int i=0;i<size()*size();i++)
         {          
             board[i]='.';
-
         }
         
     }
 
+   
+
    char Board::getValue(int M, int N)
      {
-         int num=M*size; 
+         int s=(this->size);
+         int num=M*size(); 
          return this->board[num+N].ch; 
      }
 
     Node& Board::operator[](Point po) //ok
      { 
-    int size_board = po.x * size + po.y; 
-    if ( size_board < 0||size*size <= size_board)
+    int size_board = po.x * size() + po.y; 
+    if ( size_board < 0||size()*size() <= size_board)
 	{
 		throw IllegalCoordinateException(po.x,po.y);
 	}
          return this->board[size_board];
      }
 
+     char Board::operator[](Point po) const
+     {
+         int x=po.x;
+         int y=po.y;
+         int num=x*size();
+         return this->board[num+y].ch;
+
+     }
+     
 
 
-    ostream& operator<<(ostream& out,const Board &b){
+
+    void Board::operator=(char c){
+ 
+     for(int i=0;i<size()*size();i++)
+        {          
+            this->board[i].setch(c);
+        }
+    }
+
+  ostream& operator<<(ostream& out,const Board &b)
+  {
     for(int i=0;i<b.size;i++)
     {    
         for(int j=0;j<b.size;j++)
@@ -82,22 +116,38 @@ using namespace std;
     return out;
     }
 
-    void Board::operator=(Board& b)
+void Board::deleteB()
+{
+      delete[] this->board;
+   
+}
+
+    void Board::operator=(const Board& b)
     {
-   this->size=b.size;
-    this->board=b.board;
+        if(this == &b){
+            return;
     }
-    void Board::operator=(char c){
- 
-     for(int i=0;i<size*size;i++)
-        {          
-            this->board[i].setch(c);
+        if(b.size!=this->size)
+        {
+            deleteB();
+            this->size = b.size;
+            int n=b.size;
+            this->board=new Node(b.size*b.size);
         }
-    }
+        
+        for(int i=0;i<b.size*b.size;i++)
+        {        
+            this->board[i].setch(b.board[i].getch());
+        }
+        }
+    
 
     Board::~Board()
     {
         cout<<"";
+       
     }
     
-    
+       
+
+ 
