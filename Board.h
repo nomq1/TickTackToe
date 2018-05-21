@@ -1,4 +1,6 @@
 #include <iostream>
+#pragma once
+
 #include "IllegalCoordinateException.h"
 #include "IllegalCharException.h"
 
@@ -22,7 +24,7 @@ class Node{
 class Board{
  
    public:
-        int size;
+        int size_;
         int size()const;
         Node *board;
         Board();
