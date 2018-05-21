@@ -9,14 +9,13 @@ class TicTacToe{
 
     private:
     int size;
+    bool WinTest(Player& p);
 
     public:
     Board bo;
     Player* win;
-    TicTacToe();
     TicTacToe(int inputsize);
-
-    void play(Player& X, Player& O);
+    void play(Player& Xplayer, Player& Oplayer);
     Player& winner() const;
     Board board() const;
     int getsize();
