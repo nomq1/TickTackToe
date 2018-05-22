@@ -63,14 +63,13 @@ using namespace std;
                     win=&Xplayer;
                     return;
                 }
-                if(WinTest(Oplayer))
+                if(WinTest(Xplayer))
                 {
                     win=&Oplayer;
                     return;
                 }
                 count++;
             }
-            win=&Oplayer;
         }
     }
     
