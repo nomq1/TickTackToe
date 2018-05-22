@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include "TicTacToe.h"
 using namespace std;
@@ -64,13 +63,14 @@ using namespace std;
                     win=&Xplayer;
                     return;
                 }
-                if(WinTest(Xplayer))
+                if(WinTest(Oplayer))
                 {
                     win=&Oplayer;
                     return;
                 }
                 count++;
             }
+            win=&Oplayer;
         }
     }
     
@@ -140,4 +140,3 @@ using namespace std;
     }
 
     
-
