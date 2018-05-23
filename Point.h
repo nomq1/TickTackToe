@@ -1,7 +1,7 @@
 
 #include <iostream>
 #include <string>
-#pragma once
+
 using namespace std;
 
 class Point{
@@ -11,6 +11,6 @@ class Point{
         int y;
         Point();
         Point(int num1,int num2);
-        void setXY(int x, int y);
+     
         ~Point();
 };
