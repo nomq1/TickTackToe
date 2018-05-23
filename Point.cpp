@@ -18,11 +18,6 @@ using namespace std;
             this->pair='{'+num1+','+num2+'}';
         }
 
-        void Point::setXY(int x, int y)
-        {  
-        x = x;
-        y = y;
-        }
         Point::~Point()
         {
             cout<<"";
