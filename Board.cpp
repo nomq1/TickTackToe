@@ -1,4 +1,3 @@
-
 #include <cmath>
 #include <string>
 #include <iostream>
@@ -152,22 +151,39 @@ using namespace std;
      imageFile << "P6" << endl << dimx << " "<< dimy << endl<< 255 <<endl;
      RGB * image = new RGB[pix*pix];
      drawTable(image, pix);
-    // for(int i=0; i<size; i++)
-    //    {
-         //   for(int j=0; j<size; j++)
-       //     {
-               // if(this->board[{i,j}]=='X')
-              //  {
-                   // drawX(image, pix_i,pix_j);
-
-
-             //   }
-                //2 function: drewX, drewO
-                //IF . -->
-
-     //       }
-     //   }
-
+     int green,blue,red;
+     int x= pix/size_;
+     
+        for(int i=0; i<size; i++)
+        {
+            for(int j=0; j<size; j++)
+            {
+            if(this->board[i*size+j]=='X')
+            {
+            for(int m=1; m<x; m++)
+            {
+            image[pix*x*i+pix*m+j*x+m].blue = 255;
+            image[(pix*x*i+pix*m+x)+j*x-m].blue = 255;
+    }
+}
+    else if (this->board[i*size+j] == 'O')
+    {
+    int p = pix*x*i+j*x;
+    int m = p+pix*(x/2)+(x/2);
+    int r = x/2;
+    int h = i*x, t = j*x;
+    int k = h + x/2, l = t + x/2;
+    for(int m=h; m<((i+1)*x) ; m++)
+    {
+        for(int n=t; n<((j+1)*x); n++)
+        {
+            if(abs((m-k)*(m-k)+(n-l)*(n-l)-r*r) <= (x/r)*(x/r)*(x/r)*(x/r)*(x/r)*(x/r))
+                image[pix*m+n].red = 255;
+        }
+    }
+}
+            }
+        }
   imageFile.write(reinterpret_cast<char*>(image), 3*dimx*dimy);
   imageFile.close();
   FileNum++;
@@ -187,8 +203,6 @@ using namespace std;
        }
    }
  }
-
-
 
 void Board::deleteB()
 {
