@@ -44,15 +44,17 @@ class Board{
         Node *board;
         Board();
         Board(int inputsize);
+        void setsize(int inputsize);
         char getValue(int M, int N);   
         Node& operator[](Point po);
         char operator[](Point po) const;
         void operator=(char c);
+        void operator=(const Board& b);
         friend ostream& operator<<(ostream& out, const Board &b);
-        friend istream& operator>>(istream& input,Board &b);
+        friend istream& operator>>(istream& cin,Board &b);
         string draw (const int pix) const;
         void drawTable(RGB* image, int pix) const;
         void deleteB();
-        void operator=(const Board& b);
+      
         ~Board();
         };
