@@ -69,6 +69,17 @@ using namespace std;
         
     }
 
+    void Board::setsize(int inputsize)
+    {
+        this->size_=inputsize;   
+        this->board=new Node[inputsize*inputsize];
+        for(int i=0;i<size()*size();i++)
+        {          
+            board[i]='.';
+        }
+
+    }
+
    
 
    char Board::getValue(int M, int N)
@@ -108,6 +119,26 @@ using namespace std;
         }
     }
 
+       void Board::operator=(const Board& b)
+    {
+        if(this == &b){
+            return;
+    }
+        if(b.size_!=this->size_)
+        {
+            deleteB();
+            this->size_ = b.size_;
+            int n=b.size_;
+            this->board=new Node(b.size_*b.size_);
+        }
+        
+        for(int i=0;i<b.size_*b.size_;i++)
+        {        
+            this->board[i].setch(b.board[i].getch());
+        }
+        }
+    
+
   ostream& operator<<(ostream& out,const Board &b)
   {
     for(int i=0;i<b.size_;i++)
@@ -121,23 +152,26 @@ using namespace std;
     return out;
  }
 
- istream& operator>>(istream& input, Board &b)
- {
-     
-    string s1;
-    int x= sqrt(s1.length());
-    b.size_=x;
-    cin>>s1;
-    for(int i=0;i<x;i++)
-    {
-        for(int j=0;j<x;j++)
-        {
-            b[{i,j}]=s1.at(i);
-            cout<<i;
-        }
-    }   
-    return cin;
- }
+ istream& operator>>(istream& cin, Board &b)
+ { 
+   string s;
+   cin >> s;
+   int x= sqrt(s.length());
+   b.setsize(x);
+   int position=0;
+   for(int i=0; i<x;i++)
+   {
+       for(int j=0;j<x;j++)
+       {
+         b[{i,j}].ch=s.at(position);
+         position++;  
+       }
+   }
+   return cin;
+
+
+}
+ 
  
 
 
@@ -210,25 +244,7 @@ void Board::deleteB()
    
 }
 
-    void Board::operator=(const Board& b)
-    {
-        if(this == &b){
-            return;
-    }
-        if(b.size_!=this->size_)
-        {
-            deleteB();
-            this->size_ = b.size_;
-            int n=b.size_;
-            this->board=new Node(b.size_*b.size_);
-        }
-        
-        for(int i=0;i<b.size_*b.size_;i++)
-        {        
-            this->board[i].setch(b.board[i].getch());
-        }
-        }
-    
+ 
 
     Board::~Board()
     {
