@@ -54,6 +54,7 @@ class Board{
         friend istream& operator>>(istream& cin,Board &b);
         string draw (const int pix) const;
         void drawTable(RGB* image, int pix) const;
+        string getTime()const;
         void deleteB();
       
         ~Board();
