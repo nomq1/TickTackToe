@@ -220,7 +220,9 @@ using namespace std;
         }
   imageFile.write(reinterpret_cast<char*>(image), 3*dimx*dimy);
   imageFile.close();
-  FileNum++;
+FileNum++;
+delete[] image;
+  
   return name;
  }
 
