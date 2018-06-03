@@ -240,14 +240,14 @@ using namespace std;
 
 void Board::deleteB()
 {
-      delete[] this->board;
+     delete[] this->board;
    
 }
 
- 
 
     Board::~Board()
     {
+        deleteB();
         cout<<"";
        
     }
