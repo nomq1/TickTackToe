@@ -1,5 +1,5 @@
-
 #include "Board.h"
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -7,7 +7,6 @@ using namespace std;
 int main() {
 	Board board;
 	cin >> board;
-    cout<<"."<<endl;
 	string filename = board.draw(600);
-    cout << filename << endl;
+	cout << filename << endl;
 }
