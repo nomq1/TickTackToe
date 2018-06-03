@@ -180,7 +180,7 @@ using namespace std;
      const int dimx=pix, dimy=pix;
      int size=size_;
      string num=to_string(FileNum);
-     string name= "board"+num+'.'+'p'+'p'+'m';
+     string name= getTime() +num+ ".ppm";
      ofstream imageFile(name,ios::out | ios::binary);
      imageFile << "P6" << endl << dimx << " "<< dimy << endl<< 255 <<endl;
      RGB * image = new RGB[pix*pix];
@@ -239,6 +239,16 @@ delete[] image;
        }
    }
  }
+ 
+ string Board::getTime()const
+{
+    time_t timeObj;
+    time(&timeObj);
+    tm *pTime = gmtime(&timeObj);
+    char buffer[100];
+    sprintf(buffer, "%d%d%d", pTime->tm_hour, pTime->tm_min, pTime->tm_sec);
+    return buffer;
+} 
 
 void Board::deleteB()
 {
