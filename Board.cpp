@@ -180,7 +180,7 @@ using namespace std;
      const int dimx=pix, dimy=pix;
      int size=size_;
      string num=to_string(FileNum);
-     string name= getTime() +num+ ".ppm";
+     string name= ""+getTime()+num+'.'+'p'+'p'+'m';
      ofstream imageFile(name,ios::out | ios::binary);
      imageFile << "P6" << endl << dimx << " "<< dimy << endl<< 255 <<endl;
      RGB * image = new RGB[pix*pix];
