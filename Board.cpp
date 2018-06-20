@@ -181,7 +181,7 @@ using namespace std;
      int size=size_;
      string num=to_string(FileNum);
      FileNum++;
-     string name= ""+getTime()+num+'.'+'p'+'p'+'m';
+     string name=  getTime() + "-board" + to_string(size) +".ppm";
      
      ofstream imageFile(name,ios::out | ios::binary);
      imageFile << "P6" << endl << dimx << " "<< dimy << endl<< 255 <<endl;
