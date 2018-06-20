@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include "Board.h"
+#include <chrono>
 
 using Coordinate=Point;
 
@@ -243,11 +244,16 @@ delete[] image;
  
  string Board::getTime()const
 {
+	 //std::chrono::milliseconds ms = duration_cast< std::chrono::milliseconds >( std::chrono::system_clock::now().time_since_epoch());
+	 
     time_t timeObj;
     time(&timeObj);
     tm *pTime = gmtime(&timeObj);
-    char buffer[100];
-    sprintf(buffer, "%d%d%d", pTime->tm_hour, pTime->tm_min, pTime->tm_sec);
+    struct timeval tp;
+    gettimeofday(&tp);
+    long int ms = tp.tv_sec * 1000 + tp.tv_usec / 1000;
+    char buffer[500];
+    sprintf(buffer, "%d%d%d%%ld", pTime->tm_hour, pTime->tm_min, pTime->tm_sec, ms);
     return buffer;
   
 } 
