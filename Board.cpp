@@ -180,7 +180,9 @@ using namespace std;
      const int dimx=pix, dimy=pix;
      int size=size_;
      string num=to_string(FileNum);
+     FileNum++;
      string name= ""+getTime()+num+'.'+'p'+'p'+'m';
+     
      ofstream imageFile(name,ios::out | ios::binary);
      imageFile << "P6" << endl << dimx << " "<< dimy << endl<< 255 <<endl;
      RGB * image = new RGB[pix*pix];
@@ -220,7 +222,7 @@ using namespace std;
         }
   imageFile.write(reinterpret_cast<char*>(image), 3*dimx*dimy);
   imageFile.close();
-FileNum++;
+
 delete[] image;
   
   return name;
