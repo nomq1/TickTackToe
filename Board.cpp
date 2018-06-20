@@ -154,18 +154,8 @@ using namespace std;
 
  istream& operator>>(istream& cin, Board &b)
  { 
-   string s2;
-   cin >> s2;
-   string s="";
-   for(int i=0;i<s2.length();i++)
-   {
-       if(s2.at(i)!='.')
-       {
-           s=s+s2.at(i);
-          
-       }
-   }
-   
+   string s;
+   cin >> s;
    int x= sqrt(s.length());
    b.setsize(x);
    int position=0;
