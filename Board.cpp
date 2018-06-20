@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include "Board.h"
+#include <sys/time.h>
 
 using Coordinate=Point;
 
