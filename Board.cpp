@@ -179,9 +179,7 @@ using namespace std;
  {
      const int dimx=pix, dimy=pix;
      int size=size_;
-     string num=to_string(FileNum);
-     FileNum++;
-     string name=getTime()+num+"-board"+to_string(size_)+".ppm";
+     string name=getTime()+" num: "+to_string(FileNum++)+"-board"+to_string(size_)+".ppm";
      //+ "-board" + to_string(size) +".ppm";
      
      ofstream imageFile(name,ios::out | ios::binary);
