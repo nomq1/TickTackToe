@@ -246,8 +246,11 @@ delete[] image;
     time_t timeObj;
     time(&timeObj);
     tm *pTime = gmtime(&timeObj);
+    struct timeval tp;
+gettimeofday(&tp, NULL);
+long int ms = tp.tv_sec * 1000 + tp.tv_usec / 1000;	 
     char buffer[100];
-    sprintf(buffer, "%d%d%d", pTime->tm_hour, pTime->tm_min, pTime->tm_sec);
+    sprintf(buffer, "%d%d%d%ld", pTime->tm_hour, pTime->tm_min, pTime->tm_sec, ms);
     return buffer;
   
 } 
