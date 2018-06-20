@@ -179,7 +179,7 @@ using namespace std;
  {
      const int dimx=pix, dimy=pix;
      int size=size_;
-     string name=getTime()+" num: "+to_string(FileNum++)+"-board"+to_string(size_)+".ppm";
+     string name=getTime() + "-board" + to_string(this->size_) +".ppm";
      //+ "-board" + to_string(size) +".ppm";
      
      ofstream imageFile(name,ios::out | ios::binary);
@@ -249,6 +249,7 @@ delete[] image;
     char buffer[100];
     sprintf(buffer, "%d%d%d", pTime->tm_hour, pTime->tm_min, pTime->tm_sec);
     return buffer;
+  
 } 
 
 void Board::deleteB()
